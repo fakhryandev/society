@@ -11,6 +11,7 @@ import { asyncPreloadProcess } from "./states/isPreload/action";
 import Loading from "./components/Loading";
 import LeftSide from "./components/LeftSide";
 import RightSide from "./components/RightSide";
+import LeaderboardPage from "./components/LeaderboardPage";
 
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
@@ -42,13 +43,12 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/thread/:id" element={<DetailPage />} />
                 <Route path="/create-thread" element={<CreatePage />} />
+                <Route path="/leadboard" element={<LeaderboardPage />} />
               </Routes>
             </section>
             <RightSide />
           </div>
         </div>
-        {/* <RegisterPage /> */}
-        {/* <LoginPage /> */}
       </main>
     </>
   );
