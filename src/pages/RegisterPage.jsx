@@ -1,5 +1,5 @@
-// import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import RegisterInput from "../components/RegisterInput";
 import { asyncRegisterUser } from "../states/users/action";
 
@@ -10,13 +10,14 @@ function RegisterPage() {
   };
 
   return (
-    <section>
-      <h2>Create your account</h2>
+    <section className="card bg-white px-12 py-8 rounded-md">
+      <h2 className="text-2xl mb-8">Create your account</h2>
       <RegisterInput register={onRegister} />
-      <p>
-        Already have an account?
-        {/*  */}
-        {/* <Link to="/">Login</Link> */}
+      <p className="text-center mt-5">
+        Already have an account?{" "}
+        <Link className="border-b font-bold border-gray-500" to="/login">
+          Login
+        </Link>
       </p>
     </section>
   );

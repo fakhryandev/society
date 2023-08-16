@@ -15,6 +15,7 @@ const asyncRegisterUser = ({ name, email, password }) => {
   return async () => {
     try {
       await api.register({ name, email, password });
+      alert("user created");
     } catch (error) {
       alert(error.message);
     }
