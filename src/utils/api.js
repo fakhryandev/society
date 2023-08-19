@@ -71,7 +71,7 @@ const api = (() => {
 
     const { status, message } = responseJson;
 
-    if (status !== "message") {
+    if (status !== "success") {
       throw new Error(message);
     }
 

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncReceiveLeaderboard } from "../states/leaderboard/action";
+import LeaderboardList from "../components/Leaderboard/LeaderboardList";
 
 function LeaderboardPage() {
   const { leaderboard = [] } = useSelector((states) => states);
@@ -13,7 +14,7 @@ function LeaderboardPage() {
 
   const sortedLeaderboard = leaderboard.sort((a, b) => b.score - a.score);
 
-  console.log(sortedLeaderboard);
+  return <LeaderboardList leaderboard={sortedLeaderboard} />;
 }
 
 export default LeaderboardPage;

@@ -1,22 +1,20 @@
 import { Route, Routes } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import Navigation from "./components/Navigation";
-// import LoginPage from "./pages/LoginPage";
-// import RegisterPage from "./pages/RegisterPage";
+import Navigation from "./components/Common/Navigation";
+import Loading from "./components/Common/Loading";
 import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import CreatePage from "./pages/CreatePage";
 import { asyncPreloadProcess } from "./states/isPreload/action";
-import Loading from "./components/Loading";
-import LeftSide from "./components/LeftSide";
 import RightSide from "./components/RightSide";
-import LeaderboardPage from "./components/LeaderboardPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
+import LeftBar from "./components/LeftBar/LeftBar";
 
 function App() {
-  const { authUser = null, isPreload = false } = useSelector(
-    (states) => states
-  );
+  const { isPreload = false } = useSelector((states) => states);
 
   const dispatch = useDispatch();
 
@@ -31,19 +29,22 @@ function App() {
   return (
     <>
       <Loading />
-      <header>
+      <header className="bg-white">
         <Navigation />
       </header>
-      <main className="pt-24 min-h-screen bg-neutral-100 border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-12 gap-4">
-            <LeftSide />
-            <section className="col-span-12 lg:col-span-7">
+      {/* card bg-white shadow-md px-8 py-10 */}
+      <main className="bg-amber-50 pt-5 min-h-screen text-black">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-12">
+            <LeftBar />
+            <section className="col-span-12 lg:col-span-7 px-6">
               <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="/thread/:id" element={<DetailPage />} />
                 <Route path="/create-thread" element={<CreatePage />} />
-                <Route path="/leadboard" element={<LeaderboardPage />} />
+                <Route path="/leaderboard" element={<LeaderboardPage />} />
               </Routes>
             </section>
             <RightSide />

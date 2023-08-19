@@ -14,11 +14,11 @@ function RightSide() {
   const categories = threads.map((thread) => thread.category);
 
   return (
-    <aside className="col-span-3 hidden lg:block">
+    <aside className="col-span-3 hidden lg:block px-4">
       <span className="text-lg font-bold mb-4">Categories</span>
       <ul>
         {categories.map((category) => (
-          <li key={category}>
+          <li>
             <p className="py-2">{`#${category}`}</p>
           </li>
         ))}

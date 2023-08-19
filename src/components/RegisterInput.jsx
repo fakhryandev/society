@@ -53,7 +53,7 @@ function RegisterInput({ register }) {
         </label>
       </div>
 
-      <button className="btn btn-info normal-case" type="button">
+      <button className="btn btn-info normal-case text-white" type="submit">
         Register
       </button>
     </form>

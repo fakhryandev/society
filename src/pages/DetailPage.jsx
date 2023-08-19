@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { asyncReceiveThreadDetail } from "../states/threadDetail/action";
-import ThreadDetail from "../components/ThreadDetail";
+import {
+  asyncAddComment,
+  asyncReceiveThreadDetail,
+} from "../states/threadDetail/action";
+import ThreadDetail from "../components/ThreadDetail/ThreadDetail";
 
 function DetailPage() {
   const { id } = useParams();
@@ -17,7 +20,11 @@ function DetailPage() {
     return null;
   }
 
-  return <ThreadDetail {...threadDetail} />;
+  const onAddComment = (content, commentTo) => {
+    dispatch(asyncAddComment({ content, commentTo }));
+  };
+
+  return <ThreadDetail threadDetail={threadDetail} addComment={onAddComment} />;
 }
 
 export default DetailPage;
