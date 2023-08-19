@@ -1,11 +1,32 @@
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import RegisterInput from "../components/RegisterInput";
 import { asyncRegisterUser } from "../states/users/action";
+import { asyncPreloadProcess } from "../states/isPreload/action";
 
 function RegisterPage() {
+  const { authUser = null, isPreload = false } = useSelector(
+    (states) => states
+  );
+
   const dispatch = useDispatch();
-  const onRegister = ({ name, email, password }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(asyncPreloadProcess());
+  }, [dispatch]);
+
+  if (isPreload) {
+    return null;
+  }
+
+  if (authUser) {
+    return navigate("/");
+  }
+
+  const onRegister = ({ e, name, email, password }) => {
+    e.preventDefault();
     dispatch(asyncRegisterUser({ name, email, password }));
   };
 

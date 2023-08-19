@@ -7,7 +7,10 @@ function RegisterInput({ register }) {
   const [password, setPassword] = useInput("");
 
   return (
-    <form className="flex flex-col gap-4">
+    <form
+      className="flex flex-col gap-4"
+      onSubmit={(e) => register({ e, name, email, password })}
+    >
       <div>
         <label htmlFor="name">
           <span className="block mb-2">Name</span>
@@ -50,11 +53,7 @@ function RegisterInput({ register }) {
         </label>
       </div>
 
-      <button
-        className="btn btn-info normal-case"
-        type="button"
-        onClick={() => register({ name, email, password })}
-      >
+      <button className="btn btn-info normal-case" type="button">
         Register
       </button>
     </form>
