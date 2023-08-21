@@ -7,11 +7,11 @@ import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import CreatePage from "./pages/CreatePage";
 import { asyncPreloadProcess } from "./states/isPreload/action";
-import RightSide from "./components/RightSide";
 import LeaderboardPage from "./pages/LeaderboardPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import LeftBar from "./components/LeftBar/LeftBar";
+import RightBar from "./components/RightBar/RightBar";
 
 function App() {
   const { isPreload = false } = useSelector((states) => states);
@@ -47,7 +47,7 @@ function App() {
                 <Route path="/leaderboard" element={<LeaderboardPage />} />
               </Routes>
             </section>
-            <RightSide />
+            <RightBar />
           </div>
         </div>
       </main>

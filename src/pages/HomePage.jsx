@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncPopulateUsersAndThreads } from "../states/shared/action";
+import asyncPopulateUsersAndThreads from "../states/shared/action";
 import ThreadList from "../components/Threads/ThreadList";
 
 function HomePage() {

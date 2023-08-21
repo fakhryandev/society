@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncPopulateUsersAndThreads } from "../states/shared/action";
+import asyncPopulateUsersAndThreads from "../../states/shared/action";
 
-function RightSide() {
+function RightBar() {
   const { threads = [] } = useSelector((states) => states);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,8 +16,8 @@ function RightSide() {
     <aside className="col-span-3 hidden lg:block px-4">
       <span className="text-lg font-bold mb-4">Categories</span>
       <ul>
-        {categories.map((category) => (
-          <li>
+        {categories.map((category, index) => (
+          <li key={index}>
             <p className="py-2">{`#${category}`}</p>
           </li>
         ))}
@@ -27,4 +26,4 @@ function RightSide() {
   );
 }
 
-export default RightSide;
+export default RightBar;

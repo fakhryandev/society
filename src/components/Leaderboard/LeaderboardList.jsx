@@ -3,13 +3,15 @@ import LeaderboardItem from "./LeaderboardItem";
 
 function LeaderboardList({ leaderboard }) {
   return (
-    <article className="card bg-white px-6">
-      {leaderboard.map((item) => {
+    <article className="card bg-white p-6">
+      {leaderboard.map((item, index) => {
         const {
           score,
           user: { id, name },
         } = item;
-        return <LeaderboardItem key={id} name={name} score={score} />;
+        return (
+          <LeaderboardItem index={index} key={id} name={name} score={score} />
+        );
       })}
     </article>
   );
