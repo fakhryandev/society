@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { asyncPreloadProcess } from "../../states/isPreload/action";
+import { asyncUnsetAuthUser } from "../../states/authUser/action";
 
 function Navigation() {
   const { isPreload = false, authUser = null } = useSelector(
@@ -17,6 +18,10 @@ function Navigation() {
   if (isPreload) {
     return null;
   }
+
+  const handleLogout = () => {
+    dispatch(asyncUnsetAuthUser());
+  };
   return (
     <nav className="navbar container mx-auto text-black font-bold">
       <div className="flex-1">
@@ -32,7 +37,15 @@ function Navigation() {
                 Login
               </Link>
             </li>
-          ) : null}
+          ) : (
+            <button
+              onClick={handleLogout}
+              type="button"
+              className="btn btn-warning btn-sm"
+            >
+              Logout
+            </button>
+          )}
         </ul>
       </div>
     </nav>
