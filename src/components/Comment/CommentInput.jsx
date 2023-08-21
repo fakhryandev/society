@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
+import { useParams } from "react-router";
 import useInput from "../../hooks/useInput";
 
-function CommentInput({ authUser }) {
-  console.log(authUser);
+function CommentInput({ authUser, onAddComment }) {
+  const { id: commentTo } = useParams();
+
   const [content, handleContentChange, setContent] = useInput("");
   const handleSubmitComment = (e) => {
     if (content.trim()) {
       e.preventDefault();
+      onAddComment(content, commentTo);
       setContent("");
     }
   };
@@ -41,12 +44,13 @@ function CommentInput({ authUser }) {
   );
 }
 
-// const authUserShape = {
+const authUserShape = {
+  name: PropTypes.string.isRequired,
+};
 
-// }
-
-// CommentInput.propTypes = {
-//   authUser: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-// };
+CommentInput.propTypes = {
+  authUser: PropTypes.shape(authUserShape).isRequired,
+  onAddComment: PropTypes.func.isRequired,
+};
 
 export default CommentInput;

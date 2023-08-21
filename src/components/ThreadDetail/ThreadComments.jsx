@@ -5,6 +5,7 @@ import CommentItem, { commentShape } from "../Comment/CommentItem";
 import LoginCard from "../Comment/LoginCard";
 import { asyncPreloadProcess } from "../../states/isPreload/action";
 import CommentInput from "../Comment/CommentInput";
+import { asyncAddComment } from "../../states/threadDetail/action";
 
 function ThreadComments({ comments }) {
   const { isPreload = false, authUser = null } = useSelector(
@@ -21,10 +22,18 @@ function ThreadComments({ comments }) {
     return null;
   }
 
+  const onAddComment = (content, commentTo) => {
+    dispatch(asyncAddComment({ content, commentTo }));
+  };
+
   return (
     <div className="card mb-10 p-8 bg-white h-fit">
       <div className="card border border-neutral-200 shadow-xl">
-        {authUser ? <CommentInput authUser={authUser} /> : <LoginCard />}
+        {authUser ? (
+          <CommentInput authUser={authUser} onAddComment={onAddComment} />
+        ) : (
+          <LoginCard />
+        )}
       </div>
       {comments.map((comment) => (
         <CommentItem key={comment.id} comment={comment} />
