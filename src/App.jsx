@@ -32,7 +32,6 @@ function App() {
       <header className="bg-white">
         <Navigation />
       </header>
-      {/* card bg-white shadow-md px-8 py-10 */}
       <main className="bg-amber-50 pt-5 min-h-screen text-black">
         <div className="container mx-auto">
           <div className="grid grid-cols-12">

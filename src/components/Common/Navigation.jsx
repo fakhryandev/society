@@ -22,6 +22,7 @@ function Navigation() {
   const handleLogout = () => {
     dispatch(asyncUnsetAuthUser());
   };
+
   return (
     <nav className="navbar container mx-auto text-black font-bold">
       <div className="flex-1">
@@ -33,7 +34,10 @@ function Navigation() {
         <ul className="menu menu-horizontal px-1">
           {!authUser ? (
             <li>
-              <Link className="btn btn-info btn-sm" to="/login">
+              <Link
+                className="btn btn-info btn-sm hover:bg-sky-600 hover:text-white"
+                to="/login"
+              >
                 Login
               </Link>
             </li>
@@ -41,7 +45,7 @@ function Navigation() {
             <button
               onClick={handleLogout}
               type="button"
-              className="btn btn-warning btn-sm"
+              className="btn btn-warning btn-sm hover:bg-yellow-600 hover:text-white"
             >
               Logout
             </button>
