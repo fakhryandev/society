@@ -1,7 +1,9 @@
 const api = (() => {
   const BASE_URL = "https://forum-api.dicoding.dev/v1";
 
-  const _fetchWithAuth = (url, options = {}) =>
+  const getAccessToken = () => localStorage.getItem("accessToken");
+
+  const fetchWithAuth = (url, options = {}) =>
     fetch(url, {
       ...options,
       headers: {
@@ -65,7 +67,7 @@ const api = (() => {
   };
 
   const getOwnProfile = async () => {
-    const response = await _fetchWithAuth(`${BASE_URL}/users/me`);
+    const response = await fetchWithAuth(`${BASE_URL}/users/me`);
 
     const responseJson = await response.json();
 
@@ -85,8 +87,6 @@ const api = (() => {
   const putAccessToken = (token) => {
     localStorage.setItem("accessToken", token);
   };
-
-  const getAccessToken = () => localStorage.getItem("accessToken");
 
   const getAllUsers = async () => {
     const response = await fetch(`${BASE_URL}/users`);
@@ -160,7 +160,7 @@ const api = (() => {
   };
 
   const createThread = async ({ title, body, category = "" }) => {
-    const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
+    const response = await fetchWithAuth(`${BASE_URL}/threads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -186,7 +186,7 @@ const api = (() => {
   };
 
   const createComment = async ({ content, commentTo = "" }) => {
-    const response = await _fetchWithAuth(
+    const response = await fetchWithAuth(
       `${BASE_URL}/threads/${commentTo}/comments`,
       {
         method: "POST",

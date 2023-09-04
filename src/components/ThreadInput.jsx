@@ -1,15 +1,20 @@
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import useInput from "../hooks/useInput";
+import asyncPopulateUsersAndThreads from "../states/shared/action";
 
 function ThreadInput({ addThread }) {
   const [title, handleTitleChanged, setTitle] = useInput("");
   const [category, handleCategoryChanged, setCategory] = useInput("");
   const [content, handleContentChanged, setContent] = useInput("");
 
+  const dispatch = useDispatch();
+
   const handleSubmitThread = (e) => {
     if (title.trim() && content.trim()) {
       e.preventDefault();
       addThread(title, content, category);
+      dispatch(asyncPopulateUsersAndThreads());
       setTitle("");
       setContent("");
       setCategory("");

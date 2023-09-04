@@ -5,7 +5,6 @@ import ThreadList from "../components/Threads/ThreadList";
 
 function HomePage() {
   const { threads = [], users = [] } = useSelector((states) => states);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -17,14 +17,6 @@ function ThreadItem({ id, title, category, createdAt, owner, totalComments }) {
     }
   };
 
-  const onLikeClick = (event) => {
-    console.log(event);
-  };
-
-  const onDislikeClick = (event) => {
-    console.log(event);
-  };
-
   return (
     <div className="card bg-white rounded-lg mb-2 p-4 shadow-md">
       <div className="flex">
@@ -54,15 +46,11 @@ function ThreadItem({ id, title, category, createdAt, owner, totalComments }) {
         </span>
         <span className="mt-4 block text-black">{`#${category}`}</span>
         <div className="mt-2 flex gap-3">
-          <button
-            onClick={onLikeClick}
-            type="button"
-            className="flex gap-1 cursor-pointer"
-          >
+          <button type="button" className="flex gap-1 cursor-pointer">
             <BiLike />
             <span className="block pt-1 text-xs">{totalComments}</span>
           </button>
-          <button onClick={onDislikeClick} type="button" className="flex gap-1">
+          <button type="button" className="flex gap-1">
             <BiDislike />
             <span className="block pt-1 text-xs">{totalComments}</span>
           </button>
