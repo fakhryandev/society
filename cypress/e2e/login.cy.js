@@ -55,7 +55,7 @@ describe("Login spec", () => {
       .contains(/^Login$/)
       .click();
     cy.get("nav")
-      .contains(/^Society App$/)
+      .contains(/^Society$/)
       .should("be.visible");
     cy.get("button").contains("Logout").should("be.visible");
   });
