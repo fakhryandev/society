@@ -23,6 +23,7 @@
     "react/react-in-jsx-scope": "off",
     "no-alert": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "global-require": "off"
+    "global-require": "off",
+    "no-underscore-dangle": "off"
   }
 }
