@@ -8,6 +8,7 @@ function RegisterInput({ register }) {
 
   return (
     <form
+      aria-label="form"
       className="flex flex-col gap-4"
       onSubmit={(e) => register({ e, name, email, password })}
     >

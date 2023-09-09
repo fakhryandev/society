@@ -7,6 +7,7 @@ function LoginInput({ login }) {
 
   return (
     <form
+      aria-label="form"
       className="flex flex-col gap-4"
       onSubmit={(e) => login({ e, email, password })}
     >
@@ -26,7 +27,11 @@ function LoginInput({ login }) {
         placeholder="Password"
         autoComplete="current-password"
       />
-      <button className="btn btn-info normal-case text-white" type="submit">
+      <button
+        aria-label="Login"
+        className="btn btn-info normal-case text-white"
+        type="submit"
+      >
         Login
       </button>
     </form>

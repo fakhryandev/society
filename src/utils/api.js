@@ -3,7 +3,7 @@ const api = (() => {
 
   const getAccessToken = () => localStorage.getItem("accessToken");
 
-  const fetchWithAuth = (url, options = {}) =>
+  const _fetchWithAuth = (url, options = {}) =>
     fetch(url, {
       ...options,
       headers: {
@@ -67,7 +67,7 @@ const api = (() => {
   };
 
   const getOwnProfile = async () => {
-    const response = await fetchWithAuth(`${BASE_URL}/users/me`);
+    const response = await _fetchWithAuth(`${BASE_URL}/users/me`);
 
     const responseJson = await response.json();
 
@@ -160,7 +160,7 @@ const api = (() => {
   };
 
   const createThread = async ({ title, body, category = "" }) => {
-    const response = await fetchWithAuth(`${BASE_URL}/threads`, {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -186,7 +186,7 @@ const api = (() => {
   };
 
   const createComment = async ({ content, commentTo = "" }) => {
-    const response = await fetchWithAuth(
+    const response = await _fetchWithAuth(
       `${BASE_URL}/threads/${commentTo}/comments`,
       {
         method: "POST",

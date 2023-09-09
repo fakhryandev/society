@@ -15,7 +15,6 @@ function HomePage() {
     ...thread,
     owner: users.find((user) => user.id === thread.ownerId),
   }));
-
   return <ThreadList threads={threadList} />;
 }
 
