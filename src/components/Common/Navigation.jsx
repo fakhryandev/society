@@ -27,7 +27,7 @@ function Navigation() {
     <nav className="navbar container mx-auto text-black font-bold">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          Society
+          Society App
         </Link>
       </div>
       <div className="flex-none">
