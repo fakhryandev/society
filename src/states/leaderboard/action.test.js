@@ -4,6 +4,14 @@ import {
   receiveLeaderboardActionCreator,
 } from "./action";
 
+/**
+ * skenario test
+ *
+ * - asyncReceiveLeaderboard thunk
+ *  - should dispatch action correctly when data fetching success
+ *  - should dispatch action and call alert correctly when data fetching failed
+ */
+
 const fakeLeaderboardResponse = [
   {
     user: {
@@ -33,7 +41,7 @@ const fakeLeaderboardResponse = [
 
 const fakeErrorResponse = new Error("Ups, something went wrong");
 
-describe("asyncReceiveLeaderboard", () => {
+describe("asyncReceiveLeaderboard thunk", () => {
   beforeEach(() => {
     api._getLeaderboard = api.getLeaderboard;
   });

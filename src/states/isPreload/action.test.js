@@ -3,6 +3,14 @@ import api from "../../utils/api";
 import { asyncPreloadProcess, setIsPreloadActionCreator } from "./action";
 import { setAuthUserActionCreator } from "../authUser/action";
 
+/**
+ * skenario test
+ *
+ * - asyncPreloadProcess thunk
+ *  - should dispatch action correctly when data fetching success
+ *  - should dispatch action and call alert correctly when data fetching failed
+ */
+
 const fakeProfileResponse = {
   id: "user-1",
   name: "test",
@@ -49,9 +57,6 @@ describe("asyncPreloadProcess thunk", () => {
 
     // mock dispatch
     const dispatch = jest.fn();
-
-    // mock alert
-    window.alert = jest.fn();
 
     // action
     await asyncPreloadProcess()(dispatch);

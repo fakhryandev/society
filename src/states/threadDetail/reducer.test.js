@@ -1,5 +1,13 @@
 import threadDetailReducer from "./reducer";
 
+/**
+ * - test scenario for threadDetailReducer function
+ *  - should return null when given by unkown action
+ *  - should return the thread when given by RECEIVE_THREAD_DETAIL action
+ *  - should return null when given by CLEAR_THREAD_DETAIL action
+ *  - should return thread and comments with new comment when given by ADD_COMMENT action
+ */
+
 describe("threadDetailReducer function", () => {
   it("should return null when given by unknown action", () => {
     // arrange

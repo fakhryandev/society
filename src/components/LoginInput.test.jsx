@@ -7,6 +7,15 @@ import LoginInput from "./LoginInput";
 
 expect.extend(matchers);
 
+/**
+ * skenario testing
+ *
+ * - LoginInput component
+ *   - should handle email typing correctly
+ *   - should handle password typing correctly
+ *   - should call login function when login button is clicked
+ */
+
 describe("LoginInput component", () => {
   afterEach(() => {
     cleanup();
