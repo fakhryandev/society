@@ -28,7 +28,7 @@
     "e2e": "cypress run",
     "eject": "react-scripts eject",
     "ci:test": "jest --no-watch && start-server-and-test start http-get://0.0.0.0:3000 e2e",
-    "storybook": "DISABLE_ESLINT_PLUGIN=true storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "eslintConfig": {
@@ -65,8 +65,8 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "cypress": "^13.1.0",
     "daisyui": "^3.1.7",
-    "eslint": "^8.43.0",
-    "eslint-config-airbnb": "^19.0.4",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-import": "^2.27.5",

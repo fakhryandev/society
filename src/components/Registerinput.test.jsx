@@ -7,6 +7,15 @@ import RegisterInput from "./RegisterInput";
 
 expect.extend(matchers);
 
+/**
+ * skenario testing
+ *
+ * - RegisterInput component
+ *   - should handle email typing correctly
+ *   - should handle password typing correctly
+ *   - should call register function when register button is clicked
+ */
+
 describe("RegisterInput component", () => {
   afterEach(() => {
     cleanup();

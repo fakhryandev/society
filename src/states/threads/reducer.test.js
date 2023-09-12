@@ -3,11 +3,13 @@ import threadsReducer from "./reducer";
 /**
  * - test scenario for threadReducer function
  *  - should return the initial state when given by unknown action
+ *  - should return the threads when given by RECEIVE_THREADS action
+ *  - should return the threads with new thread when given by ADD_THREAD action
  */
 
 describe("threadReducer function", () => {
   it("should return the initial state when given by unknown action", () => {
-    // arange
+    // arrange
     const initialState = [];
     const action = { type: "UNKNOWN" };
 

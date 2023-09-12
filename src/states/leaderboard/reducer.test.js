@@ -1,5 +1,11 @@
 import leaderboardReducer from "./reducer";
 
+/**
+ * - test scenario for leaderboardReducer function
+ *  - should return the initial state when given by unknown action
+ *  - should return the leaderboard when given by RECEIVE_LEADERBOARD action
+ */
+
 describe("leaderboardReducer function", () => {
   it("should return initial state when given by unknown action", () => {
     // arrange
